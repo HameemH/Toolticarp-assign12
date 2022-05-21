@@ -15,16 +15,15 @@ const Header = () => {
     </div>
     <a class="btn btn-ghost normal-case text-xl text-primary">daisyUI</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="lg:navbar-end hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
       <li><a>Item 1</a></li>
      
       <li><a>Item 3</a></li>
+      <a class="btn btn-primary text-white">HOME</a>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn btn-primary text-white">HOME</a>
-  </div>
+  
 </div>
     );
 };
