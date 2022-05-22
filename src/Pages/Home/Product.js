@@ -1,12 +1,17 @@
 import React from 'react';
 
-const Product = () => {
+const Product = ({product}) => {
+    const {_id, img ,description,minQuantity, availQuantity,name, price} =product
+
     return (
-        <div class="card  lg:w-lg bg-base-100 shadow-xl image-full">
-  <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
+        <div class="card lg:w-lg  bg-base-100 shadow-xl image-full">
+  <figure><img src={img} alt="Shoes" /></figure>
   <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <h2 class="card-title text-white">{name}</h2>
+    <p>{description}</p>
+    <h2 className='card-title text-white'>Price Per Unit:${price}</h2>
+    <p className='text-white'>Minium Order:{minQuantity} Pcs</p>
+    <p>Available Product Amount:{availQuantity} Pcs</p>
     <div class="card-actions justify-end">
       <button class="btn btn-primary">Buy Now</button>
     </div>

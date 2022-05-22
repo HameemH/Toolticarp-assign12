@@ -4,7 +4,7 @@ import Produtcs from './Produtcs';
 
 const Home = () => {
     return (
-        <div className='px-10'>
+        <div className='px-5'>
             <Banner></Banner>
             <Produtcs></Produtcs>
         </div>
