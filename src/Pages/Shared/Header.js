@@ -12,7 +12,7 @@ const Header = () => {
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to='/'> Home</Link></li>
         <li><a>Item 3</a></li>
-        <Link to='/' class="btn btn-primary text-white">LOG IN</Link>
+        <Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
 
       </ul>
     </div>
@@ -23,7 +23,7 @@ const Header = () => {
     <li><Link to='/'> Home</Link></li>
      
       <li><a>Item 3</a></li>
-      <Link to='/' class="btn btn-primary text-white">LOG IN</Link>
+      <Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
     </ul>
   </div>
   
