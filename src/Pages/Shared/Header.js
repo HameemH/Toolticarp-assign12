@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  const handleLogOut = () =>{
+    signOut(auth);
+}
     return (
         <div class="navbar bg-slate-200">
   <div class="navbar-start">
@@ -12,7 +19,9 @@ const Header = () => {
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to='/'> Home</Link></li>
         <li><a>Item 3</a></li>
-        <Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
+        {
+          user? <button onClick ={handleLogOut} class="btn btn-primary text-white">LOG OUT</button>:<Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
+        }
 
       </ul>
     </div>
@@ -23,7 +32,9 @@ const Header = () => {
     <li><Link to='/'> Home</Link></li>
      
       <li><a>Item 3</a></li>
-      <Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
+      {
+          user? <button  onClick={handleLogOut}  class="btn btn-primary text-white">LOG OUT</button>:<Link to='/login' class="btn btn-primary text-white">LOG IN</Link>
+        }
     </ul>
   </div>
   
