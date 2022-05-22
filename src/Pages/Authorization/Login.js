@@ -22,11 +22,10 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    useEffect( () =>{
+  
         if (user || googleUser) {
             navigate(from, { replace: true });
         }
-    }, [ from, navigate])
 
     if (loading || googleLoading) {
         return <Loading></Loading>
@@ -41,7 +40,7 @@ const Login = () => {
     }
     return (
         <div className='flex h-screen justify-center items-center'>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 border border-lime-300 bg-base-100 shadow-xl">
             <div className="card-body">
                 <h2 className="text-center text-2xl font-bold">Login</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +105,7 @@ const Login = () => {
                 >Continue with Google</button>
             </div>
         </div>
-    </div >
+        </div >
     );
 };
 
