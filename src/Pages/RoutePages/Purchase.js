@@ -8,6 +8,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [product, setproduct] = useState({});
     const [orderQuantity, setOrderQuantity] = useState(0)
+    const [wholePrice, setWholePrice] = useState(0);
     const { _id, img, description, minQuantity, availQuantity, name, price } = product;
     const [user] = useAuthState(auth);
 
@@ -24,10 +25,35 @@ const Purchase = () => {
 
     const handleChangeQuantity = e => {
         e.preventDefault();
-        const quantity = e.target.quantity.value;
-        setOrderQuantity(parseInt(quantity))
+        const quantity = parseInt(e.target.quantity.value);
+        const pricePerUnit = parseInt(price)
+        const initialQuantity = parseInt(minQuantity)
+        if (quantity > minQuantity && quantity < availQuantity){
+            setOrderQuantity(quantity)
+            const wholePrice = quantity * pricePerUnit;
+            setWholePrice(parseInt(wholePrice))
+           alert("Your Order Quantity has been updated")
+           e.target.reset()
+
+        }
+        else{
+            alert("Please Put a valid Quantity")
+            const wholePrice = initialQuantity * pricePerUnit;
+
+            setWholePrice(parseInt(wholePrice))
+            e.target.reset()
+        }
 
     }
+    useEffect(
+        ()=>{
+            const initialQuantity = parseInt(minQuantity);
+            const pricePerUnit = parseInt(price)
+            const wholePrice = parseInt(initialQuantity * pricePerUnit);
+    
+            setWholePrice(parseInt(wholePrice))
+        }
+        ,[])
     return (
         <div className='p-10'>
             <div className='py-5'>
@@ -72,7 +98,7 @@ const Purchase = () => {
                                     <input type="text" name="Product" placeholder='Product Name' value={name} disabled id="" className='p-2 m-2 border border-lime-400  ' required />
                                     <input type="text" name="name" placeholder='Your Name' value={user?.displayName} disabled id="" className='p-2 m-2 border border-lime-400  ' required />
                                     <input type="email" name="email" value={user?.email} className='p-2 m-2 rounded- border border-lime-400  ' id="" disabled />
-                                    <input type="text" name="price" placeholder='Product price'  id="" className='p-2 m-2  border border-lime-400  ' required />
+                                    <input type="text" name="price" placeholder='Product price' value={wholePrice}  id="" className='p-2 m-2  border border-lime-400  ' required />
                                     {
                                          (orderQuantity > minQuantity && orderQuantity<availQuantity) ? 
                                          <input type="number" name="quantity" value={orderQuantity}  className='p-2 m-2 rounded-pill border border-lime-400 ' id="" required />
