@@ -30,7 +30,7 @@ const Purchase = () => {
         const initialQuantity = parseInt(minQuantity)
         if (quantity > minQuantity && quantity < availQuantity){
             setOrderQuantity(quantity)
-            const wholePrice = quantity * pricePerUnit;
+            const wholePrice = parseInt(quantity * pricePerUnit);
             setWholePrice(parseInt(wholePrice))
            alert("Your Order Quantity has been updated")
            e.target.reset()
@@ -38,7 +38,7 @@ const Purchase = () => {
         }
         else{
             alert("Please Put a valid Quantity")
-            const wholePrice = initialQuantity * pricePerUnit;
+            const wholePrice = parseInt(quantity * pricePerUnit);
 
             setWholePrice(parseInt(wholePrice))
             e.target.reset()
@@ -53,7 +53,7 @@ const Purchase = () => {
     
             setWholePrice(parseInt(wholePrice))
         }
-        ,[])
+        ,[minQuantity])
     return (
         <div className='p-10'>
             <div className='py-5'>
