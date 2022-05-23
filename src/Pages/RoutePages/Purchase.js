@@ -82,10 +82,10 @@ const Purchase = () => {
     return (
         <div className='p-10'>
             <div className='py-5'>
-                <h1 className='text-center text-5xl'> Hello Dear, <span className='text-primary'>{user?.displayName}</span>({user?.email})</h1>
+                <h1 className='text-center lg:text-5xl'> Hello Dear, <span className='text-primary'>{user?.displayName}</span>({user?.email})</h1>
             </div>
-            <div className='grid grid-cols-2'>
-                <div class="card mx-auto border border-lime-300 lg:w-96 bg-base-100 shadow-xl">
+            <div className='grid grid-cols-1 lg:grid-cols-2'>
+                <div class="card mx-auto border border-lime-300 lg:w-96 bg-base-100 mb-3 shadow-xl">
                     <figure><img src={img} alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">{name}</h2>
@@ -100,7 +100,7 @@ const Purchase = () => {
                 </div>
                 <div>
                     {/* card for increasing quantity */}
-                    <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card lg:w-96 border border-lime-300 bg-base-100 shadow-xl">
                         <div class="card-body">
                             {
                                 (orderQuantity > minQuantity  && orderQuantity<availQuantity) ?
@@ -116,7 +116,7 @@ const Purchase = () => {
                         </div>
                     </div>
                     <div>
-                        <div class="card w-96 bg-base-100 shadow-xl">
+                        <div class="card lg:w-96 bg-base-100 mt-4 border border-lime-300 shadow-xl">
                             <div class="card-body">
                                 <h2 class="card-title">Order Form</h2>
                                 <form className='d-flex flex-column' onSubmit={handleOrder} >
