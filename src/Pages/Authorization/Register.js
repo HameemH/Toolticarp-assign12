@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
@@ -26,14 +26,16 @@ const Register = () => {
     }
 
     if (user || googleUser) {
+        
         navigate('/');
     }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log('update done');
+        
     }
+   
     return (
         <div className='flex h-screen justify-center py-16 my-10 items-center'>
         <div className="card border border-lime-300 w-96 bg-base-100 shadow-xl">

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from './../Shared/Loading';
@@ -10,22 +10,36 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
-        user,
+        signInUser,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-   
+   const [user ] =useAuthState(auth)
 
     let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-
+    if(user){
+        const currentUser ={userName: user?.displayName, userEmail:user?.email}
+        const email = user?.email;
+        fetch(`http://localhost:5000/users/${email}`, {
+            method:'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(currentUser)
+        })
+        .then(res=>res.json())
+        .then(data => {
+            console.log('', data);
+        })
+    }
   
-        if (user || googleUser) {
+    if (signInUser || googleUser) {
             navigate(from, { replace: true });
-        }
+     }
 
     if (loading || googleLoading) {
         return <Loading></Loading>

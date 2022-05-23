@@ -22,6 +22,16 @@ const Purchase = () => {
 
                 })
         }, [])
+        useEffect(
+            ()=>{
+                const initialQuantity = parseInt(minQuantity);
+                const pricePerUnit = parseInt(price)
+                const wholePrice = parseInt(initialQuantity * pricePerUnit);
+        
+                setWholePrice(parseInt(wholePrice))
+            }
+            ,[minQuantity])
+       
 
     const handleChangeQuantity = e => {
         e.preventDefault();
@@ -45,15 +55,30 @@ const Purchase = () => {
         }
 
     }
-    useEffect(
-        ()=>{
-            const initialQuantity = parseInt(minQuantity);
-            const pricePerUnit = parseInt(price)
-            const wholePrice = parseInt(initialQuantity * pricePerUnit);
+    const handleOrder = e =>{
+        e.preventDefault();
+        const product = e.target.Product.value;
+        const cutomerName = e.target.name.value;
+        const email = e.target.email.value;
+        const price = e.target.price.value;
+        const quantity = e.target.quantity.value;
+        const order = {product, cutomerName, email, price, quantity}
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log('success', data);
+            alert('Order Palced. Please Clear Your Payment At My Orders Section');
+            e.target.reset();
+         })
+    }
     
-            setWholePrice(parseInt(wholePrice))
-        }
-        ,[minQuantity])
+   
     return (
         <div className='p-10'>
             <div className='py-5'>
@@ -93,20 +118,25 @@ const Purchase = () => {
                     <div>
                         <div class="card w-96 bg-base-100 shadow-xl">
                             <div class="card-body">
-                                <h2 class="card-title">Card title!</h2>
-                                <form className='d-flex flex-column' >
-                                    <input type="text" name="Product" placeholder='Product Name' value={name} disabled id="" className='p-2 m-2 border border-lime-400  ' required />
-                                    <input type="text" name="name" placeholder='Your Name' value={user?.displayName} disabled id="" className='p-2 m-2 border border-lime-400  ' required />
-                                    <input type="email" name="email" value={user?.email} className='p-2 m-2 rounded- border border-lime-400  ' id="" disabled />
-                                    <input type="text" name="price" placeholder='Product price' value={wholePrice}  id="" className='p-2 m-2  border border-lime-400  ' required />
+                                <h2 class="card-title">Order Form</h2>
+                                <form className='d-flex flex-column' onSubmit={handleOrder} >
+                                    <p>Product</p>
+                                    <input type="text" name="Product" placeholder='Product Name' value={name} disabled id="" className='p-2 border border-lime-400  ' required />
+                                    <p>Your Name</p>
+                                    <input type="text" name="name" placeholder='Your Name' value={user?.displayName} disabled id="" className='p-2  border border-lime-400  ' required />
+                                    <p>Your Email</p>
+                                    <input type="email" name="email" value={user?.email} className='p-2  rounded- border border-lime-400  ' id="" disabled />
+                                    <p>Price</p>
+                                    <input type="text" name="price" placeholder='Product price' value={wholePrice}  id="" className='p-2  border border-lime-400  ' required />
+                                    <p>Quantity</p>
                                     {
                                          (orderQuantity > minQuantity && orderQuantity<availQuantity) ? 
-                                         <input type="number" name="quantity" value={orderQuantity}  className='p-2 m-2 rounded-pill border border-lime-400 ' id="" required />
+                                         <input type="number" name="quantity" value={orderQuantity}  className='p-2  rounded-pill border border-lime-400 ' id="" required />
                                          :
-                                         <input type="number" name="quantity"  value={minQuantity} className='p-2 m-2 rounded-pill border border-lime-400  ' id="" required />
+                                         <input type="number" name="quantity"  value={minQuantity} className='p-2  rounded-pill border border-lime-400  ' id="" required />
 
                                     }
-                                    <input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary  rounded-pill' />
+                                    <input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' />
                                 </form>
                             </div>
                         </div>
