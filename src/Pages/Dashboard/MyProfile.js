@@ -45,16 +45,16 @@ const MyProfile = () => {
     return (
         <div>
             <div className='grid lg:grid-cols-2 grid-cols-1'>
-                <div class="card lg:w-96 bg-base-100 shadow-xl">
+                <div class="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                         <img src={user?.photoURL} alt="Shoes" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">{userInfo?.userName}</h2>
                         <h2 className='card-title'>Email:{userInfo?.userEmail}</h2>
-                        <h2 class="card-title">{userInfo?.userEdu}</h2>
-                        <h2 class="card-title">{userInfo?.userLocation}</h2>
-                        <h2 class="card-title">{userInfo?.userNumber}</h2>
+                        <h2 class="card-title"> Education:{userInfo?.userEdu}</h2>
+                        <h2 class="card-title">Address:{userInfo?.userLocation}</h2>
+                        <h2 class="card-title">Phone No:{userInfo?.userNumber}</h2>
                         <div class="card-actions">
 
                         </div>
@@ -62,7 +62,7 @@ const MyProfile = () => {
                 </div>
 
                 <div>
-                    <div class="card lg:w-96 bg-base-100 shadow-xl">
+                    <div class="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
                         <div class="card-body">
                             <h2 class="card-title">Complete or Update your profile</h2>
                             <form onSubmit={handleOtherInfo}>
