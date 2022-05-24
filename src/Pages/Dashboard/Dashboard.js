@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -7,7 +7,6 @@ const Dashboard = () => {
   <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content ">
    
-  <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
                 <Outlet></Outlet>
   
   </div> 
@@ -15,7 +14,7 @@ const Dashboard = () => {
     <label for="my-drawer-2" class="drawer-overlay"></label> 
     <ul class="menu p-4 overflow-y-auto w-80 bg-slate-200 text-base-content">
      
-      <li><a>Sidebar Item 1</a></li>
+      <li><Link to='/dashboard'>My Profile</Link></li>
       <li><a>Sidebar Item 2</a></li>
     </ul>
   

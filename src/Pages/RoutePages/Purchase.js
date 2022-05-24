@@ -73,7 +73,7 @@ const Purchase = () => {
         .then(res => res.json())
         .then(data =>{
             console.log('success', data);
-            alert('Order Palced. Please Clear Your Payment At My Orders Section');
+            alert('Order Placed. Please Clear Your Payment At My Orders Section to confirm');
             e.target.reset();
          })
     }

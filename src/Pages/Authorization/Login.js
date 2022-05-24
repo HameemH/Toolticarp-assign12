@@ -5,6 +5,7 @@ import auth from './../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from './../Shared/Loading';
 
+
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -33,7 +34,7 @@ const Login = () => {
         })
         .then(res=>res.json())
         .then(data => {
-            console.log('', data);
+            console.log( data);
         })
     }
   
