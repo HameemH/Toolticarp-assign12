@@ -25,7 +25,7 @@ const Login = () => {
     if(user){
         const currentUser ={userName: user?.displayName, userEmail:user?.email}
         const email = user?.email;
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
             method:'PUT',
             headers: {
                 'content-type': 'application/json'

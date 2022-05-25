@@ -5,12 +5,13 @@ import Product from './Product';
 
 const Produtcs = () => {
 
-    const { data: Products, isLoading } = useQuery(['products'], () => fetch('http://localhost:5000/products')
+    const { data: Products, isLoading } = useQuery(['products'], () => fetch('https://peaceful-stream-38691.herokuapp.com/products')
         .then(res => res.json()))
         if(isLoading){
             return <Loading></Loading>
         }
-
+   const reverseProducts = [...Products].reverse()
+   
     return (
         <div className='mt-10'>
             <div>
@@ -20,7 +21,7 @@ const Produtcs = () => {
             </div>
             <div className='grid lg:grid-cols-3 grid-cols-1 gap-5 my-5 '>
                 {
-                    Products?.slice(0,6).map(product =><Product key={product._id} product={product}></Product>)
+                    reverseProducts?.slice(0,6).map(product =><Product key={product._id} product={product}></Product>)
                 }
             </div>
         </div>

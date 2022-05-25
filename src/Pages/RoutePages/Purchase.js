@@ -15,7 +15,7 @@ const Purchase = () => {
     console.log(typeof orderQuantity);
     useEffect(
         () => {
-            fetch(`http://localhost:5000/products/${id}`)
+            fetch(`https://peaceful-stream-38691.herokuapp.com/products/${id}`)
                 .then(res => res.json())
                 .then(data => {
                     setproduct(data)
@@ -63,7 +63,7 @@ const Purchase = () => {
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
         const order = {product, cutomerName, email, price, quantity}
-        fetch('http://localhost:5000/orders', {
+        fetch('https://peaceful-stream-38691.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

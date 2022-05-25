@@ -9,7 +9,7 @@ const AddReview = () => {
     const email = user?.email
     useEffect(
         () => {
-            fetch(`http://localhost:5000/users/${email}`)
+            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -20,9 +20,9 @@ const AddReview = () => {
 
 const handleReview = e =>{
    e.preventDefault();
-   const review= {name: userInfo?.userName, email: user?.email , review: e.target.review.value};
+   const review= {name: userInfo?.userName, email: user?.email , review: e.target.review.value, ratings: e.target.ratings.value};
    console.log(review);
-   fetch('http://localhost:5000/reviews', {
+   fetch('https://peaceful-stream-38691.herokuapp.com/reviews', {
     method:'POST',
     headers: {
         'content-type': 'application/json'
@@ -46,8 +46,10 @@ const handleReview = e =>{
                             <input type="text" name="name" value={userInfo?.userName}    id="" className='p-2 border border-lime-400  ' />
                             <p>Your Email</p>
                             <input type="text" name="location" value={user?.email}   id="" className='p-2 border border-lime-400  '  />
+                            <p>Ratings Out Of Five</p>
+                            <input type="Number" name="ratings" placeholder='Ratings' required id="" className='p-2 border border-lime-400  '  />
                            <p>Your Review</p>
-                           <textarea name="review" className='p-2 border border-lime-400 '  id="" cols="22" rows="5"></textarea>
+                           <textarea name="review" className='p-2 border border-lime-400 ' required  id="" cols="22" rows="5"></textarea>
                             
                             <input type='submit' class="btn btn-primary w-40 mt-4" value='Post Review'/>
                             

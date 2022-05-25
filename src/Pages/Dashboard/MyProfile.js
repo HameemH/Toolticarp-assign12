@@ -9,7 +9,7 @@ const MyProfile = () => {
     const email = user.email
     useEffect(
         () => {
-            fetch(`http://localhost:5000/users/${email}`)
+            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -28,7 +28,7 @@ const MyProfile = () => {
                                 userNumber: (e.target?.number?.value==="")? userInfo?.userNumber:e.target?.number?.value,
             }
            
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -40,6 +40,7 @@ const MyProfile = () => {
                 console.log('', data);
                 alert('profile updated')
                 e.target.reset()
+                window.location.reload()
             })
         }
     return (
@@ -47,7 +48,7 @@ const MyProfile = () => {
             <div className='grid lg:grid-cols-2 grid-cols-1'>
                 <div class="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                        <img src={user?.photoURL} alt="Shoes" class="rounded-xl" />
+                        <img src={user?.photoURL} alt="Profile" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">{userInfo?.userName}</h2>
