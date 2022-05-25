@@ -9,6 +9,23 @@ const Header = () => {
   const handleLogOut = () =>{
     signOut(auth);
 }
+const handleInputUser =() =>{
+  if(user){
+    const currentUser ={userName: user?.displayName, userEmail:user?.email}
+    const email = user?.email;
+    fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
+        method:'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body:JSON.stringify(currentUser)
+    })
+    .then(res=>res.json())
+    .then(data => {
+        console.log( data);
+        window.location.reload()
+    })}
+}
     return (
         <div class="navbar border border-lime-300 bg-slate-200">
   <div class="navbar-start">
@@ -34,7 +51,7 @@ const Header = () => {
     <li><Link to='/'> Home</Link></li>
      
        {
-          user? <li><Link to='/dashboard'>Dashboard</Link></li> : null
+          user? <li><Link to='/dashboard' onClick={handleInputUser}>Dashboard</Link></li> : null
         }
       {
           user? <button  onClick={handleLogOut}  class="btn btn-primary text-white">LOG OUT</button>:<Link to='/login' class="btn btn-primary text-white">LOG IN</Link>

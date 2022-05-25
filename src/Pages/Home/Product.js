@@ -1,11 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../firebase.init';
 
 const Product = ({product}) => {
     const {_id, img ,description,minQuantity, availQuantity,name, price} =product;
+    const [user] = useAuthState(auth)
     const navigate = useNavigate()
   const managePurchase = id =>{
-    navigate (`purchase/${id}`)
+    navigate (`purchase/${id}`);
+    if(user){
+      const currentUser ={userName: user?.displayName, userEmail:user?.email}
+      const email = user?.email;
+      fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
+          method:'PUT',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body:JSON.stringify(currentUser)
+      })
+      .then(res=>res.json())
+      .then(data => {
+          console.log( data);
+          // window.location.reload()
+      })}
+
   }
     return (
         <div class="card lg:w-lg  bg-base-100 shadow-xl image-full">
