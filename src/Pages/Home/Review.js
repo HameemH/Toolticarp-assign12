@@ -3,7 +3,7 @@ import Loading from './../Shared/Loading';
 import { useQuery } from 'react-query';
 
 const Review = () => {
-    const { data: Reviews, isLoading } = useQuery(['reviews'], () => fetch('http://localhost:5000/reviews')
+    const { data: Reviews, isLoading } = useQuery(['reviews'], () => fetch('https://peaceful-stream-38691.herokuapp.com/reviews')
         .then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>

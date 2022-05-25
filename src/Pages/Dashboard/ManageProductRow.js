@@ -3,7 +3,7 @@ import React from 'react';
 const ManageProductRow = ({product}) => {
     const {_id, img ,minQuantity, availQuantity,name, price} =product;
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://peaceful-stream-38691.herokuapp.com/products/${id}`, {
             method: 'DELETE',
            
         })

@@ -21,11 +21,13 @@ const MyProfile = () => {
 
         const handleOtherInfo =e=>{
             e.preventDefault();
-            const currentUser ={userName: (e.target?.name?.value === "")? userInfo?.userName : e.target?.name?.value, 
-                                userEmail:userInfo?.userEmail,
+            const currentUser ={userEmail:userInfo?.userEmail,
+                userName: (e.target?.name?.value === "")? userInfo?.userName : e.target?.name?.value, 
+                                
                                 userEdu: (e.target?.education?.value === "" )? userInfo?.userEdu: e.target?.education?.value ,
                                 userLocation: (e.target?.location?.value=== "")? userInfo?.userLocation: e.target?.location?.value,
                                 userNumber: (e.target?.number?.value==="")? userInfo?.userNumber:e.target?.number?.value,
+                                userRole:userInfo?.userRole
             }
            
             fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
