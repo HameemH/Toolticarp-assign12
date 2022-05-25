@@ -32,7 +32,7 @@ const Myorders = () => {
     <tbody>
       
       {
-                Orders?.map((order,index)=>   <tr>
+                Orders?.map((order,index)=>   <tr key={order._id}>
                 <th className='text-primary'>{index+1}</th>
                 <td>{order?.product}</td>
                 <td>{order?.quantity}</td>

@@ -49,7 +49,7 @@ const MakeAdmin = () => {
     <tbody>
       
       {
-                Users?.map((user,index)=>   <tr>
+                Users?.map((user,index)=>   <tr key={user._id}>
                 <th className='text-primary'>{index+1}</th>
                 <td>{user?.userName}</td>
                 <td>{user?.userEmail}</td>
