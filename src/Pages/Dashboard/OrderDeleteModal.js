@@ -12,7 +12,7 @@ const OrderDeleteModal = ({refetch,setDeleteOrder,deleteOrder}) => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount) {
-                    alert(`Doctor: ${product} is deleted.`)
+                    alert(`${product} is deleted.`)
                     setDeleteOrder(null);
                     refetch();
                 }

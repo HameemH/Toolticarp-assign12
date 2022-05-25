@@ -17,8 +17,8 @@ const Review = () => {
                     reverseReviews?.slice(0, 3).map(review => 
                         <div class="card mx-auto lg:w-96 mb-4 bg-gray-300 border border-lime-300 bg-base-100 shadow-xl">
                             <div class="card-body">
-                                <p>{review.review}</p>
-
+                                <p>Review:{review.review}</p>
+                                <p>Ratings:<span className='text-primary'>{review.ratings}</span>/5</p>
                                 <p>By <span className='text-primary'>{review.name}</span></p>
                             </div>
                         </div>
