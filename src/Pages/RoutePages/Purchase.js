@@ -7,11 +7,11 @@ import auth from './../../firebase.init';
 const Purchase = () => {
     const { id } = useParams();
     const [product, setproduct] = useState({});
-    const [orderQuantity, setOrderQuantity] = useState(0)
     const [wholePrice, setWholePrice] = useState(0);
     const { _id, img, description, minQuantity, availQuantity, name, price } = product;
     const [user] = useAuthState(auth);
-
+    const [orderQuantity, setOrderQuantity] = useState(product?.minQuantity)
+console.log(orderQuantity);
     console.log(typeof orderQuantity);
     useEffect(
         () => {
@@ -27,7 +27,7 @@ const Purchase = () => {
                 const initialQuantity = parseInt(minQuantity);
                 const pricePerUnit = parseInt(price)
                 const wholePrice = parseInt(initialQuantity * pricePerUnit);
-        
+                setOrderQuantity(initialQuantity)
                 setWholePrice(parseInt(wholePrice))
             }
             ,[minQuantity])
@@ -38,7 +38,7 @@ const Purchase = () => {
         const quantity = parseInt(e.target.quantity.value);
         const pricePerUnit = parseInt(price)
         const initialQuantity = parseInt(minQuantity)
-        if (quantity > minQuantity && quantity < availQuantity){
+        if (quantity >= minQuantity && quantity < availQuantity){
             setOrderQuantity(quantity)
             const wholePrice = parseInt(quantity * pricePerUnit);
             setWholePrice(parseInt(wholePrice))
@@ -47,9 +47,9 @@ const Purchase = () => {
 
         }
         else{
-            alert("Please Put a valid Quantity")
-            const wholePrice = parseInt(quantity * pricePerUnit);
-
+            alert(`You have to Order At least ${initialQuantity}`)
+            const wholePrice = parseInt(initialQuantity * pricePerUnit);
+            setOrderQuantity(quantity)
             setWholePrice(parseInt(wholePrice))
             e.target.reset()
         }
@@ -103,9 +103,9 @@ const Purchase = () => {
                     <div class="card lg:w-96 border border-lime-300 bg-base-100 shadow-xl">
                         <div class="card-body">
                             {
-                                (orderQuantity > minQuantity  && orderQuantity<availQuantity) ?
+                                (orderQuantity >= minQuantity  && orderQuantity<availQuantity) ?
                                     <h2 class="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2> :
-                                    <h2 class="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{minQuantity}</span></h2>
+                                    <h2 class="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2>
                             }
                             <h2 className='card-title'>If you want to change Quantity</h2>
                             <form onSubmit={handleChangeQuantity} >
@@ -130,13 +130,16 @@ const Purchase = () => {
                                     <input type="text" name="price" placeholder='Product price' value={wholePrice}  id="" className='p-2  border border-lime-400  ' required />
                                     <p>Quantity</p>
                                     {
-                                         (orderQuantity > minQuantity && orderQuantity<availQuantity) ? 
+                                         (orderQuantity >= minQuantity && orderQuantity<availQuantity) ? 
                                          <input type="number" name="quantity" value={orderQuantity}  className='p-2  rounded-pill border border-lime-400 ' id="" required />
                                          :
                                          <input type="number" name="quantity"  value={minQuantity} className='p-2  rounded-pill border border-lime-400  ' id="" required />
 
                                     }
-                                    <input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' />
+                                     {
+                                         (orderQuantity >= minQuantity && orderQuantity<availQuantity) ? <input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' />:<input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' disabled/>
+                                     }   
+                                    
                                 </form>
                             </div>
                         </div>

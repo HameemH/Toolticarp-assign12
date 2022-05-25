@@ -36,7 +36,7 @@ const Myorders = () => {
                 <td>{order?.quantity}</td>
                 <td>{order?.price}</td>
                 <td><button className='btn btn-primary btn-xs'>PAY</button></td>
-                <td><button className='btn bg-red-700 btn-xs'>Cancel</button></td>
+                <td><label className='btn bg-red-700 btn-xs'>Cancel</label></td>
               </tr>
                 )
             }
