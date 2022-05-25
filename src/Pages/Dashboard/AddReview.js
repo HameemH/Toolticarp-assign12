@@ -47,7 +47,7 @@ const handleReview = e =>{
                             <p>Your Email</p>
                             <input type="text" name="location" value={user?.email}   id="" className='p-2 border border-lime-400  '  />
                             <p>Ratings Out Of Five</p>
-                            <input type="Number" name="ratings" placeholder='Ratings' required id="" className='p-2 border border-lime-400  '  />
+                            <input type="text" name="ratings" placeholder='Ratings' required id="" className='p-2 border border-lime-400  '  />
                            <p>Your Review</p>
                            <textarea name="review" className='p-2 border border-lime-400 ' required  id="" cols="22" rows="5"></textarea>
                             

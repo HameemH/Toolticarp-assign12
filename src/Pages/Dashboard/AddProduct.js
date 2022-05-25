@@ -46,7 +46,7 @@ const AddProduct = () => {
                            <p>Description</p>
                            <textarea name="description" className='p-2 border border-lime-400 ' required  id="" cols="22" rows="5"></textarea>
                             
-                            <input type='submit' class="btn btn-primary w-40 mt-4" value='Post Review'/>
+                            <input type='submit' class="btn btn-primary w-40 mt-4" value='Add Product'/>
                             
                             </form>
                             </div>
