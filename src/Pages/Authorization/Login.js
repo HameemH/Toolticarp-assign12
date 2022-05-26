@@ -23,7 +23,7 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     if(user){
-        const currentUser ={userName: user?.displayName, userEmail:user?.email}
+        const currentUser ={userName: user?.displayName, userEmail:user?.email,  }
         const email = user?.email;
         fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
             method:'PUT',

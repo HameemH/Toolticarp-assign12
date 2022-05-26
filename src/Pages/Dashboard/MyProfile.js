@@ -58,6 +58,10 @@ const MyProfile = () => {
                         <h2 class="card-title"> Education:{userInfo?.userEdu}</h2>
                         <h2 class="card-title">Address:{userInfo?.userLocation}</h2>
                         <h2 class="card-title">Phone No:{userInfo?.userNumber}</h2>
+                        {
+       (userInfo?.userRole=== 'admin')? <h2 class="card-title">Role:{userInfo?.userRole}</h2>: <h2 class="card-title">Role:User</h2>
+     }
+                        
                         <div class="card-actions">
 
                         </div>
