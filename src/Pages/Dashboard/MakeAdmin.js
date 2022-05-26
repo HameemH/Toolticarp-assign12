@@ -19,7 +19,7 @@ const MakeAdmin = () => {
             userNumber: user.userNumber,
             userRole: 'admin'
         }
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
             method:'PUT',
             headers: {
                 'content-type': 'application/json'

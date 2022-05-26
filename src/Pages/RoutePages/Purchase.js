@@ -7,6 +7,7 @@ import auth from './../../firebase.init';
 const Purchase = () => {
     const { id } = useParams();
     const [product, setproduct] = useState({});
+    const [error, setError] = useState('')
     const [wholePrice, setWholePrice] = useState(0);
     const { _id, img, description, minQuantity, availQuantity, name, price } = product;
     const [user] = useAuthState(auth);
@@ -43,11 +44,13 @@ console.log(orderQuantity);
             const wholePrice = parseInt(quantity * pricePerUnit);
             setWholePrice(parseInt(wholePrice))
            alert("Your Order Quantity has been updated")
+           setError('')
            e.target.reset()
 
         }
         else{
             alert(`You have to Order At least ${initialQuantity}`)
+            setError(`Please Order At least ${initialQuantity}`)
             const wholePrice = parseInt(initialQuantity * pricePerUnit);
             setOrderQuantity(quantity)
             setWholePrice(parseInt(wholePrice))
@@ -62,7 +65,9 @@ console.log(orderQuantity);
         const email = e.target.email.value;
         const price = e.target.price.value;
         const quantity = e.target.quantity.value;
-        const order = {product, cutomerName, email, price, quantity}
+        const phone =e.target.phone.value;
+        const adress = e.target.adress.value;
+        const order = {product, cutomerName, email, price, quantity,phone,adress}
         fetch('https://peaceful-stream-38691.herokuapp.com/orders', {
             method: 'POST',
             headers: {
@@ -82,7 +87,9 @@ console.log(orderQuantity);
     return (
         <div className='p-10'>
             <div className='py-5'>
+                
                 <h1 className='text-center lg:text-5xl'> Hello Dear, <span className='text-primary'>{user?.displayName}</span>({user?.email})</h1>
+                <h1 className='text-center lg:text-3xl text-red-700'>{error}</h1>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 <div class="card mx-auto border border-lime-300 lg:w-96 bg-base-100 mb-3 shadow-xl">
@@ -128,6 +135,7 @@ console.log(orderQuantity);
                                     <input type="email" name="email" value={user?.email} className='p-2  rounded- border border-lime-400  ' id="" disabled />
                                     <p>Price</p>
                                     <input type="text" name="price" placeholder='Product price' value={wholePrice}  id="" className='p-2  border border-lime-400  ' required />
+                                    
                                     <p>Quantity</p>
                                     {
                                          (orderQuantity >= minQuantity && orderQuantity<availQuantity) ? 
@@ -136,10 +144,14 @@ console.log(orderQuantity);
                                          <input type="number" name="quantity"  value={minQuantity} className='p-2  rounded-pill border border-lime-400  ' id="" required />
 
                                     }
+                                      <p>Phone No.</p>
+                                    <input type="text" name="phone" placeholder='Phone No'   id="" className='p-2  border border-lime-400  ' required />
+                                    <p>Adress</p>
+                                    <input type="text" name="adress" placeholder='Adress'   id="" className='p-2  border border-lime-400  ' required />
                                      {
                                          (orderQuantity >= minQuantity && orderQuantity<availQuantity) ? <input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' />:<input type="submit" value="PlACE YOUR ORDER" className='btn btn-primary mt-2 ' disabled/>
                                      }   
-                                    
+                                  
                                 </form>
                             </div>
                         </div>

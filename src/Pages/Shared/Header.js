@@ -47,7 +47,7 @@ const Header = () => {
 
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl text-primary">daisyUI</a>
+        <a class="btn btn-ghost normal-case text-xl text-primary">TOOLTICARP</a>
       </div>
       <div class="lg:navbar-end  hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
