@@ -23,7 +23,7 @@ const NewsLetter = () => {
                 </div>
                 </div>
                 </div>
-            </div>
+                </div>
         </div>
         </div>
         </div>
