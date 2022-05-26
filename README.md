@@ -1,6 +1,6 @@
 # TOOLTICARP
 
-This project was bootstrapped with [LIVE SITE](https://assignment-12-eef58.web.app/).
+[LIVE SITE](https://assignment-12-eef58.web.app/).
 
 ## Main Features On the website
 * It has firebase google and email login system
