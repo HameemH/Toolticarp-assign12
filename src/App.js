@@ -18,6 +18,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageAllProucts from './Pages/Dashboard/ManageAllProucts';
 import NotFound from './Pages/Shared/NotFound';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
+import Payment from './Pages/Dashboard/Payment';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
        <Route index element={<MyProfile></MyProfile>}></Route>
        <Route path='review' element={<AddReview></AddReview>}></Route>
        <Route path='myorders' element={<Myorders></Myorders>}></Route>
+       <Route path='payment/:id' element={<Payment></Payment>}></Route>
        <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
        <Route path='manageproducts' element={<ManageAllProucts></ManageAllProucts>}></Route>
        <Route path='manageorder' element={<ManageAllOrders></ManageAllOrders>}></Route>

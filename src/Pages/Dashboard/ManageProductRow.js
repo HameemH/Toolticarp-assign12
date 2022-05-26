@@ -3,18 +3,21 @@ import React from 'react';
 const ManageProductRow = ({product}) => {
     const {_id, img ,minQuantity, availQuantity,name, price} =product;
     const handleDelete = (id) => {
+      const proceed = window.confirm('Are you sure you want to delete?');
+      if(proceed){
         fetch(`https://peaceful-stream-38691.herokuapp.com/products/${id}`, {
-            method: 'DELETE',
-           
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    alert(` ${name} is deleted.`)
-                   
-                }
-            })
+          method: 'DELETE',
+         
+      })
+          .then(res => res.json())
+          .then(data => {
+              console.log(data);
+              if (data.deletedCount) {
+                  alert(` ${name} is deleted.`)
+                 
+              }
+          })
+      }
     }
     return (
         <div class="card lg:w-72 mx-auto  bg-base-100 shadow-xl image-full">

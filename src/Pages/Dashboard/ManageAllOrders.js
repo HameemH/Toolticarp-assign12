@@ -25,6 +25,7 @@ const ManageAllOrders = () => {
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Buyer</th>
                             <th>Pay status</th>
                             <th></th>
                         </tr>
@@ -37,6 +38,7 @@ const ManageAllOrders = () => {
                                 <td>{order?.product}</td>
                                 <td>{order?.quantity}</td>
                                 <td>{order?.price}</td>
+                                <td>{order?.email}</td>
                                 <td><button className='btn btn-primary btn-xs'>PAY</button></td>
                                 <td><label for='delete-confirm-modal' onClick={() => setDeleteOrder(order)} className='btn bg-red-700 btn-xs'>Cancel</label></td>
                             </tr>
