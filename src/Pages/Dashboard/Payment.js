@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import Loading from './../Shared/Loading';
-import CheckoutForm from './CheckoutForm';
+import CheckoutForm from './CheckoutForm.js';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe('pk_test_51L3ZFRBpM4RocrHh4jUH8xeFOz1KLcKsSJle1QwhrEQpLjsp9Fj61IIPbzxzADzpCNJTqfvLlQH4dT9X4G7jH1aj00AZC38lrt')

@@ -4,12 +4,12 @@ const NewsLetter = () => {
     return (
         <div>
              <div className=' py-5 '>
-            <div className='grid lg:grid-cols-2 grid-cols-1 bg-slate-300'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 '>
             <div className="">
                     <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470" className='' alt="" />
                 </div>
-                <div className='flex h-screen justify-center  items-center'>
-                <div className='card w-96 border border-lime-300 bg-base-100 shadow-xl'>
+                <div className='flex justify-center  items-center'>
+                <div className='card lg:w-96 border border-lime-300 bg-base-100 shadow-xl'>
                     <div className="card-body">
                
                 <div className="col-sm-12 col-md-6 ">

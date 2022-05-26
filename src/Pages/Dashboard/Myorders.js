@@ -39,8 +39,15 @@ const Myorders = () => {
                 <td>{order?.product}</td>
                 <td>{order?.quantity}</td>
                 <td>{order?.price}</td>
-                <td><Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-primary btn-xs' >PAY</button></Link></td>
-                <td><label for='delete-confirm-modal' onClick={() => setDeleteOrder(order)} className='btn bg-red-700 btn-xs'>Cancel</label></td>
+                <td>{
+                    (order.paymentStatus === 'paid')? <p className='text-primary font-bold'>Paid</p>:                 
+                  <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-primary btn-xs' >PAY</button></Link>
+                  }</td>
+                <td>{
+                    (order.paymentStatus === 'paid')? null:                 
+                    <label for='delete-confirm-modal' onClick={() => setDeleteOrder(order)} className='btn bg-red-700 btn-xs'>Cancel</label>
+                    }</td>
+                <td></td>
               </tr>
               )
             }

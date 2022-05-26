@@ -39,8 +39,14 @@ const ManageAllOrders = () => {
                                 <td>{order?.quantity}</td>
                                 <td>{order?.price}</td>
                                 <td>{order?.email}</td>
-                                <td><button className='btn btn-primary btn-xs'>PAY</button></td>
-                                <td><label for='delete-confirm-modal' onClick={() => setDeleteOrder(order)} className='btn bg-red-700 btn-xs'>Cancel</label></td>
+                                <td>{
+                                    (order.paymentStatus === 'paid') ? <p className='text-primary font-bold'>Paid</p> :
+                                        <p className='text-red-400 font-bold'>Not Paid</p>
+                                }</td>
+                                <td>{
+                                    (order.paymentStatus === 'paid') ? null :
+                                        <label for='delete-confirm-modal' onClick={() => setDeleteOrder(order)} className='btn bg-red-700 btn-xs'>Cancel</label>
+                                }</td>
                             </tr>
                             )
                         }
