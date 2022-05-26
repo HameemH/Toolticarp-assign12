@@ -8,7 +8,7 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe('pk_test_51L3ZFRBpM4RocrHh4jUH8xeFOz1KLcKsSJle1QwhrEQpLjsp9Fj61IIPbzxzADzpCNJTqfvLlQH4dT9X4G7jH1aj00AZC38lrt')
 const Payment = () => {
     const { id } = useParams();
-    const { data: Order, isLoading,} = useQuery(['order'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/orders/${id}`)
+    const { data: Order, isLoading,} = useQuery(['order'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/duepaymentOrder/${id}`)
         .then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
@@ -18,8 +18,8 @@ const Payment = () => {
         <div className='flex flex-col  justify-center items-center h-screen'>
             <div className="card lg:w-96 border mb-4 border-lime-300 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="card-title">Hello,<span className='text-primary'>{Order.cutomerName}</span></h2>
-                    <p>Do You want to pay for {Order.quantiy} pcs of <span className='text-primary'>{Order.product}</span> total cost of <span className='text-primary'>{Order.price} USD</span></p>
+                    <h2 className="card-title">Hello,<span className='text-primary'>{Order?.cutomerName}</span></h2>
+                    <p>Do You want to pay for {Order?.quantiy} pcs of <span className='text-primary'>{Order?.product}</span> total cost of <span className='text-primary'>{Order.price} USD</span></p>
 
                 </div>
             </div>
