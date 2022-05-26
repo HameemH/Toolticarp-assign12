@@ -14,7 +14,7 @@ const NewsLetter = () => {
                
                 <div className="col-sm-12 col-md-6 ">
                     <div className='loginContainer mt-sm-3 w-75'>
-                        <h6>For getting New Product Update and amazing Offer .You can subscribe to our newsletter.</h6>
+                        <h6 className='text-2xl font-bold'>For getting New Product Update and amazing Offer .You can subscribe to our newsletter.</h6>
                         <form className='d-flex flex-column'>
                             <input   type="email" name="" id="" placeholder='Your Email' className='border border-lime-400 p-3 mb-3' required />
                         <input type="submit" value="Subscribe"className='btn btn-primary shadow  mb-3'/>
