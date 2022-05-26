@@ -38,9 +38,9 @@ const handleReview = e =>{
 }
     return (
         <div>
-              <div class="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
-                            <h2 class="card-title">Complete or Update your profile</h2>
+              <div className="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <h2 className="card-title">Complete or Update your profile</h2>
                             <form onSubmit={handleReview}>
                             <p>Your Name</p>
                             <input type="text" name="name" value={userInfo?.userName}    id="" className='p-2 border border-lime-400  ' />
@@ -51,7 +51,7 @@ const handleReview = e =>{
                            <p>Your Review</p>
                            <textarea name="review" className='p-2 border border-lime-400 ' required  id="" cols="22" rows="5"></textarea>
                             
-                            <input type='submit' class="btn btn-primary w-40 mt-4" value='Post Review'/>
+                            <input type='submit' className="btn btn-primary w-40 mt-4" value='Post Review'/>
                             
                             </form>
                             

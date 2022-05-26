@@ -9,8 +9,8 @@ import { useNavigate, Link } from 'react-router-dom';
 const Myorders = () => {
   const [user] = useAuthState(auth)
   const [deleteOrder, setDeleteOrder] = useState(null)
-  const navigate = useNavigate()
-  const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/orders?email=${user.email}`)
+  const email = user.email
+  const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/orders/${email}`)
     .then(res => res.json()))
   if (isLoading) {
     return <Loading></Loading>
@@ -18,8 +18,8 @@ const Myorders = () => {
  
   return (
     <div>
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
 
           <thead>
             <tr>

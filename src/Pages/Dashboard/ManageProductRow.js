@@ -20,16 +20,16 @@ const ManageProductRow = ({product}) => {
       }
     }
     return (
-        <div class="card lg:w-72 mx-auto  bg-base-100 shadow-xl image-full">
+        <div className="card lg:w-72 mx-auto  bg-base-100 shadow-xl image-full">
         <figure><img src={img} alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title text-white">{name}</h2>
+        <div className="card-body">
+          <h2 className="card-title text-white">{name}</h2>
           
           <h2 className='card-title text-white'>Price Per Unit:${price}</h2>
           <p className='text-white'>Minium Order:{minQuantity} Pcs</p>
           <p>Available Product Amount:{availQuantity} Pcs</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary text-white" onClick={()=>handleDelete(_id)}>Delete</button>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary text-white" onClick={()=>handleDelete(_id)}>Delete</button>
           </div>
         </div>
       </div>

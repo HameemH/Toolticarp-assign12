@@ -29,8 +29,8 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <div class="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
-                        <div class="card-body">
+            <div className="card border border-lime-300 mx-auto mt-3 lg:w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
           <h1 className='text-2xl text-center font-bold'>Add A Product</h1>  
           <form onSubmit={handleItem} >
                             <p>Product Name</p>
@@ -46,7 +46,7 @@ const AddProduct = () => {
                            <p>Description</p>
                            <textarea name="description" className='p-2 border border-lime-400 ' required  id="" cols="22" rows="5"></textarea>
                             
-                            <input type='submit' class="btn btn-primary w-40 mt-4" value='Add Product'/>
+                            <input type='submit' className="btn btn-primary w-40 mt-4" value='Add Product'/>
                             
                             </form>
                             </div>

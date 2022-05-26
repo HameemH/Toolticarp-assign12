@@ -13,11 +13,11 @@ const ManageAllOrders = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(Orders);
+   
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
 
                     <thead>
                         <tr>
@@ -40,7 +40,7 @@ const ManageAllOrders = () => {
                                 <td>{order?.price}</td>
                                 <td>{order?.email}</td>
                                 <td>{
-                                    (order.paymentStatus === 'paid') ? <p className='text-primary font-bold'>Paid</p> :
+                                    (order.paymentStatus === 'paid') ? <div> <p className='text-primary font-bold'>Pending</p> </div> :
                                         <p className='text-red-400 font-bold'>Not Paid</p>
                                 }</td>
                                 <td>{

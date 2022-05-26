@@ -92,40 +92,40 @@ console.log(orderQuantity);
                 <h1 className='text-center lg:text-3xl text-red-700'>{error}</h1>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
-                <div class="card mx-auto border border-lime-300 lg:w-96 bg-base-100 mb-3 shadow-xl">
+                <div className="card mx-auto border border-lime-300 lg:w-96 bg-base-100 mb-3 shadow-xl">
                     <figure><img src={img} alt="Shoes" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{name}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{name}</h2>
                         <p>{description}</p>
                         <h2 className='card-title '>Price Per Unit:${price}</h2>
                         <p className=''>Minium Order:{minQuantity} Pcs</p>
                         <p>Available Product Amount:{availQuantity} Pcs</p>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Buy Now</button>
+                        <div className="card-actions justify-end">
+                            <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
                 <div>
                     {/* card for increasing quantity */}
-                    <div class="card lg:w-96 border border-lime-300 bg-base-100 shadow-xl">
-                        <div class="card-body">
+                    <div className="card lg:w-96 border border-lime-300 bg-base-100 shadow-xl">
+                        <div className="card-body">
                             {
                                 (orderQuantity >= minQuantity  && orderQuantity<availQuantity) ?
-                                    <h2 class="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2> :
-                                    <h2 class="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2>
+                                    <h2 className="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2> :
+                                    <h2 className="font-bold text-center">Quantity of Prouduct you want to Order <span className='text-primary'>{orderQuantity}</span></h2>
                             }
                             <h2 className='card-title'>If you want to change Quantity</h2>
                             <form onSubmit={handleChangeQuantity} >
                                 <input type="number" name='quantity' className='border border-lime-400 rounded-lg p-3' />
-                                <input type="submit" value="Change Quantity" class="btn btn-primary mt-3" />
+                                <input type="submit" value="Change Quantity" className="btn btn-primary mt-3" />
                             </form>
 
                         </div>
                     </div>
                     <div>
-                        <div class="card lg:w-96 bg-base-100 mt-4 border border-lime-300 shadow-xl">
-                            <div class="card-body">
-                                <h2 class="card-title">Order Form</h2>
+                        <div className="card lg:w-96 bg-base-100 mt-4 border border-lime-300 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title">Order Form</h2>
                                 <form className='d-flex flex-column' onSubmit={handleOrder} >
                                     <p>Product</p>
                                     <input type="text" name="Product" placeholder='Product Name' value={name} disabled id="" className='p-2 border border-lime-400  ' required />

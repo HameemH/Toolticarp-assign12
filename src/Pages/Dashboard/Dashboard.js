@@ -19,16 +19,16 @@ const Dashboard = () => {
         }
         , [user])
     return (
-        <div class="drawer drawer-mobile">
-  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content ">
+        <div className="drawer drawer-mobile">
+  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content ">
    
                 <Outlet></Outlet>
   
   </div> 
-  <div class="drawer-side  border border-lime-300">
-    <label for="my-drawer-2" class="drawer-overlay"></label> 
-    <ul class="menu p-4 overflow-y-auto w-80 bg-slate-200 text-base-content">
+  <div className="drawer-side  border border-lime-300">
+    <label for="my-drawer-2" className="drawer-overlay"></label> 
+    <ul className="menu p-4 overflow-y-auto w-80 bg-slate-200 text-base-content">
      
       <li><Link to='/dashboard'>My Profile</Link></li>
 

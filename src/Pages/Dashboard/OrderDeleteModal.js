@@ -20,14 +20,14 @@ const OrderDeleteModal = ({refetch,setDeleteOrder,deleteOrder}) => {
     }
     return (
         <div>
-        <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-                <h3 class="font-bold text-lg text-red-500">Hey {name},Are you sure you want to cancel Your Order for {quantity} Pcs of ${product}!</h3>
-                <p class="py-4"></p>
-                <div class="modal-action">
-                <button  class="btn btn-xs btn-error" onClick={()=>handleDelete()}>Delete</button>
-                    <label for="delete-confirm-modal" class="btn btn-xs">Cancel</label>
+        <input type="checkbox" id="delete-confirm-modal" className="modal-toggle" />
+        <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+                <h3 className="font-bold text-lg text-red-500">Hey {name},Are you sure you want to cancel Your Order for {quantity} Pcs of ${product}!</h3>
+                <p className="py-4"></p>
+                <div className="modal-action">
+                <button  className="btn btn-xs btn-error" onClick={()=>handleDelete()}>Delete</button>
+                    <label for="delete-confirm-modal" className="btn btn-xs">Cancel</label>
                 </div>
             </div>
         </div>
