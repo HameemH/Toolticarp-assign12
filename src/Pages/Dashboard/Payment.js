@@ -19,7 +19,7 @@ const Payment = () => {
             <div className="card lg:w-96 border mb-4 border-lime-300 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="card-title">Hello,<span className='text-primary'>{Order?.cutomerName}</span></h2>
-                    <p>Do You want to pay for {Order?.quantiy} pcs of <span className='text-primary'>{Order?.product}</span> total cost of <span className='text-primary'>{Order.price} USD</span></p>
+                    <p>Do You want to pay for {Order?.quantiy} pcs of <span className='text-primary'>{Order?.product}</span> total cost of <span className='text-primary'>{Order?.price} USD</span></p>
 
                 </div>
             </div>
