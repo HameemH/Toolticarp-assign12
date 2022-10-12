@@ -21,6 +21,7 @@ import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import Payment from './Pages/Dashboard/Payment';
 import Portfolio from './Pages/RoutePages/Portfolio';
 import Blogs from './Pages/RoutePages/Blogs';
+import PhoneLogin  from './Pages/Authorization/PhoneLogin';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
        <Route path='/' element={<Home></Home>}></Route>
        <Route path='/home' element={<Home></Home>}></Route>
        <Route path='/login' element={<Login></Login>}></Route>
+       <Route path='/phoneLogin' element={<PhoneLogin></PhoneLogin>}></Route>
        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
        <Route path='/register' element={<Register></Register>}></Route>

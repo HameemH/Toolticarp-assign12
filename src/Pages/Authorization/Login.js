@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle, useAuthState } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle, useAuthState, useSignInWithFacebook } from 'react-firebase-hooks/auth';
 import auth from './../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from './../Shared/Loading';
@@ -8,6 +8,7 @@ import Loading from './../Shared/Loading';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithFacebook, Fbuser, fbloading, fberror] = useSignInWithFacebook(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -118,6 +119,13 @@ const Login = () => {
                     onClick={() => signInWithGoogle()}
                     className="btn btn-outline border-lime-400 hover:bg-lime-500"
                 >Continue with Google</button>
+                <button
+                    onClick={() => signInWithFacebook()}
+                    className="btn btn-outline border-lime-400 hover:bg-lime-500"
+                >Continue with Facebook</button>
+                <Link to="/phoneLogin"><button
+                    className="btn btn-outline border-lime-400 hover:bg-lime-500"
+                >Continue with Phone</button></Link>
             </div>
         </div>
         </div >

@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import Product from './Product';
 
 const Produtcs = () => {
-
+    
     const { data: Products, isLoading } = useQuery(['products'], () => fetch('https://peaceful-stream-38691.herokuapp.com/products')
         .then(res => res.json()))
         if(isLoading){
