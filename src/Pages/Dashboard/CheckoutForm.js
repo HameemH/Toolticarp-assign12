@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
     const { _id,product, price,  quantity,email,cutomerName  } = order;
 
     useEffect(() => {
-        fetch('https://peaceful-stream-38691.herokuapp.com/create-payment-intent', {
+        fetch('https://toolticarp-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({ order }) => {
                 product,cutomerName,email,price,quantity,paymentStatus:'paid',
                 transactionId: paymentIntent.id
             }
-            fetch(`https://peaceful-stream-38691.herokuapp.com/orders/${_id}`, {
+            fetch(`https://toolticarp-server.onrender.com/orders/${_id}`, {
                 method: 'put',
                 headers: {
                     'content-type': 'application/json',

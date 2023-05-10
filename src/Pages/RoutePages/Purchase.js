@@ -16,7 +16,7 @@ console.log(orderQuantity);
     console.log(typeof orderQuantity);
     useEffect(
         () => {
-            fetch(`https://peaceful-stream-38691.herokuapp.com/products/${id}`)
+            fetch(`https://toolticarp-server.onrender.com/products/${id}`)
                 .then(res => res.json())
                 .then(data => {
                     setproduct(data)
@@ -68,7 +68,7 @@ console.log(orderQuantity);
         const phone =e.target.phone.value;
         const adress = e.target.adress.value;
         const order = {product, cutomerName, email, price, quantity,phone,adress}
-        fetch('https://peaceful-stream-38691.herokuapp.com/orders', {
+        fetch('https://toolticarp-server.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

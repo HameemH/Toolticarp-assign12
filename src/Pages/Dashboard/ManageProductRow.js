@@ -5,7 +5,7 @@ const ManageProductRow = ({product}) => {
     const handleDelete = (id) => {
       const proceed = window.confirm('Are you sure you want to delete?');
       if(proceed){
-        fetch(`https://peaceful-stream-38691.herokuapp.com/products/${id}`, {
+        fetch(`https://toolticarp-server.onrender.com/products/${id}`, {
           method: 'DELETE',
          
       })

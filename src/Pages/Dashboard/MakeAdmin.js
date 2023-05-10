@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Loading from './../Shared/Loading';
 
 const MakeAdmin = () => {
-    const { data: Users, isLoading } = useQuery(['users'], () => fetch('https://peaceful-stream-38691.herokuapp.com/users')
+    const { data: Users, isLoading } = useQuery(['users'], () => fetch('https://toolticarp-server.onrender.com/users')
     .then(res => res.json()))
     if(isLoading){
         return <Loading></Loading>
@@ -19,7 +19,7 @@ const MakeAdmin = () => {
             userNumber: user.userNumber,
             userRole: 'admin'
         }
-        fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
+        fetch(`https://toolticarp-server.onrender.com/users/${email}`, {
             method:'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const Myorders = () => {
   const [user] = useAuthState(auth)
   const [deleteOrder, setDeleteOrder] = useState(null)
   const email = user.email
-  const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/orders/${email}`)
+  const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch(`https://toolticarp-server.onrender.com/orders/${email}`)
     .then(res => res.json()))
   if (isLoading) {
     return <Loading></Loading>

@@ -9,7 +9,7 @@ const MyProfile = () => {
     const email = user.email
     useEffect(
         () => {
-            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`)
+            fetch(`https://toolticarp-server.onrender.com/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -30,7 +30,7 @@ const MyProfile = () => {
                                 userRole:userInfo?.userRole
             }
            
-            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
+            fetch(`https://toolticarp-server.onrender.com/users/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'

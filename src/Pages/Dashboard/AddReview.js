@@ -9,7 +9,7 @@ const AddReview = () => {
     const email = user?.email
     useEffect(
         () => {
-            fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`)
+            fetch(`https://toolticarp-server.onrender.com/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -22,7 +22,7 @@ const handleReview = e =>{
    e.preventDefault();
    const review= {name: userInfo?.userName, email: user?.email , review: e.target.review.value, ratings: e.target.ratings.value};
    console.log(review);
-   fetch('https://peaceful-stream-38691.herokuapp.com/reviews', {
+   fetch('https://toolticarp-server.onrender.com/reviews', {
     method:'POST',
     headers: {
         'content-type': 'application/json'

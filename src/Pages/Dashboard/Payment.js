@@ -8,7 +8,7 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe('pk_test_51L3ZFRBpM4RocrHh4jUH8xeFOz1KLcKsSJle1QwhrEQpLjsp9Fj61IIPbzxzADzpCNJTqfvLlQH4dT9X4G7jH1aj00AZC38lrt')
 const Payment = () => {
     const { id } = useParams();
-    const { data: Order, isLoading,} = useQuery(['order'], () => fetch(`https://peaceful-stream-38691.herokuapp.com/duepaymentOrder/${id}`)
+    const { data: Order, isLoading,} = useQuery(['order'], () => fetch(`https://toolticarp-server.onrender.com/duepaymentOrder/${id}`)
         .then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>

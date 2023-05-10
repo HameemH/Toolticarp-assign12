@@ -8,7 +8,7 @@ import auth from './../../firebase.init';
 const ManageAllOrders = () => {
     const [user] = useAuthState(auth)
     const [deleteOrder, setDeleteOrder] = useState(null)
-    const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch('https://peaceful-stream-38691.herokuapp.com/orders')
+    const { data: Orders, isLoading, refetch } = useQuery(['orders'], () => fetch('https://toolticarp-server.onrender.com/orders')
         .then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>

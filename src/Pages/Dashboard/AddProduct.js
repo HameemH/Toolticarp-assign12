@@ -11,7 +11,7 @@ const AddProduct = () => {
             minQuantity:e.target.minQuantity.value,
             description: e.target.description.value
         }
-        fetch('https://peaceful-stream-38691.herokuapp.com/products', {
+        fetch('https://toolticarp-server.onrender.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

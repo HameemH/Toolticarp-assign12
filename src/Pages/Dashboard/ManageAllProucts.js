@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import ManageProductRow from './ManageProductRow';
 
 const ManageAllProucts = () => {
-    const { data: Products, isLoading } = useQuery(['products'], () => fetch('https://peaceful-stream-38691.herokuapp.com/products')
+    const { data: Products, isLoading } = useQuery(['products'], () => fetch('https://toolticarp-server.onrender.com/products')
     .then(res => res.json()))
     if(isLoading){
         return <Loading></Loading>

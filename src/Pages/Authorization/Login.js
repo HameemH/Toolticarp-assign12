@@ -26,7 +26,7 @@ const Login = () => {
     if(user){
         const currentUser ={userName: user?.displayName, userEmail:user?.email,  }
         const email = user?.email;
-        fetch(`https://peaceful-stream-38691.herokuapp.com/users/${email}`, {
+        fetch(`https://toolticarp-server.onrender.com/users/${email}`, {
             method:'PUT',
             headers: {
                 'content-type': 'application/json'

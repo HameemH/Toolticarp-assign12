@@ -4,7 +4,7 @@ const OrderDeleteModal = ({refetch,setDeleteOrder,deleteOrder}) => {
     console.log(deleteOrder);
     const {_id,name,product, quantity} = deleteOrder;
     const handleDelete = () => {
-        fetch(`https://peaceful-stream-38691.herokuapp.com/orders/${_id}`, {
+        fetch(`https://toolticarp-server.onrender.com/orders/${_id}`, {
             method: 'DELETE',
            
         })
